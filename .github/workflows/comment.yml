@@ -9,6 +9,8 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_RUN_ID: ${{ github.event.workflow_run.workflow.id }}
     steps:
       - name: 'Download artifact'
         uses: actions/download-artifact@v3
