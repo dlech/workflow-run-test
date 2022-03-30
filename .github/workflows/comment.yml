@@ -9,11 +9,11 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_RUN_ID: ${{ github.event.workflow_run.id }}
     steps:
       - name: 'Download artifact'
         uses: actions/download-artifact@v3
+        env:
+          GITHUB_RUN_ID: ${{ github.event.workflow_run.id }}
         with:
           name: pr_number
       - name: 'Comment on PR'
